@@ -1,0 +1,76 @@
+{
+  "tool_path": "/tools/portal-check",
+  "cta": {
+    "book_cal": false,
+    "pricing": false,
+    "button": "Get my readiness report",
+    "under_button": "One email with a link to your report. No call, no booking."
+  },
+  "preview": {
+    "show": ["tier", "route", "summary"],
+    "full_report": "email_link"
+  },
+  "form": {
+    "fields": [
+      "portal_name",
+      "portal_url",
+      "task",
+      "frequency",
+      "minutes_per_run",
+      "login",
+      "data_out",
+      "data_in",
+      "terms_automation",
+      "ui_change_frequency",
+      "can_ask_vendor",
+      "email",
+      "newsletter_optin"
+    ],
+    "newsletter_optin_default": false,
+    "selects_only_except": ["portal_name", "task", "portal_url", "email"]
+  },
+  "abuse": {
+    "honeypot": true,
+    "block_disposable_email": true,
+    "per_email_per_hour": 1,
+    "per_ip_per_hour": 5,
+    "turnstile": "if_abuse_appears"
+  },
+  "cost": {
+    "per_run_usd_cap": 0.1,
+    "global_day_usd": 3,
+    "global_month_usd": 50,
+    "on_cap": "waitlist",
+    "on_per_run_exceeded": "fallback",
+    "log_cost_usd": true
+  },
+  "email": {
+    "from": "Kilo <bot@kiloagent.com>",
+    "reply_to": "Kilo <bot@kiloagent.com>",
+    "touch": 1,
+    "sequence": false,
+    "list_unsubscribe": true,
+    "list_unsubscribe_post": true,
+    "attachment": false,
+    "book_cal": false,
+    "pricing": false,
+    "add_to_list_only_if": "newsletter_optin",
+    "subject": "Your portal readiness report: {portal_name} is {tier_label}",
+    "subject_tier_d": "Your portal readiness report: {portal_name}",
+    "preheader": "Best route in, risks, and a message you can send the vendor."
+  },
+  "footer": {
+    "imprint": true,
+    "privacy": true,
+    "legal_name": "ZenStudy Technologies FZCO",
+    "address": "Technohub 1, Dubai Silicon Oasis, Dubai, UAE",
+    "retention_line": false
+  },
+  "posthog_events": [
+    "portal_check_start",
+    "portal_check_submit",
+    "portal_check_preview_shown",
+    "portal_check_email_sent",
+    "portal_check_report_opened"
+  ]
+}

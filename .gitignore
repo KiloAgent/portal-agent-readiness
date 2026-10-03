@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+.dev.vars
+*.log
+.DS_Store
+.claude/
+.cursor/skills/
+.codex/
+.github/skills/
+.agents/

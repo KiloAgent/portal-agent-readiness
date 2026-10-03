@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KiloAgent/portal-agent-readiness/schema/result.json",
+  "title": "PortalCheckResult",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "created_at",
+    "email_hash",
+    "portal_name",
+    "task",
+    "readiness",
+    "tier",
+    "tier_label",
+    "route",
+    "factor_scores",
+    "hours_saved_month",
+    "assumptions",
+    "summary",
+    "why_this_route",
+    "setup_steps",
+    "risks",
+    "human_checkpoints",
+    "pilot",
+    "questions_for_vendor",
+    "vendor_message_draft",
+    "model",
+    "cost_usd"
+  ],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "minLength": 1 },
+    "email_hash": { "type": "string", "minLength": 1 },
+    "portal_name": { "type": "string", "minLength": 2, "maxLength": 80 },
+    "task": { "type": "string", "minLength": 15, "maxLength": 300 },
+    "readiness": { "type": "number", "minimum": 0, "maximum": 100 },
+    "tier": { "type": "string", "enum": ["A", "B", "C", "D"] },
+    "tier_label": {
+      "type": "string",
+      "enum": [
+        "Agent-ready",
+        "Ready with a workaround",
+        "Possible but fragile",
+        "Not a good candidate yet"
+      ]
+    },
+    "route": {
+      "type": "string",
+      "enum": ["api", "export_email", "browser", "human"]
+    },
+    "factor_scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["data_out", "data_in", "login", "terms_automation", "stability"],
+      "properties": {
+        "data_out": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "data_in": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "login": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "terms_automation": { "type": "integer", "minimum": 0, "maximum": 5 },
+        "stability": { "type": "integer", "minimum": 0, "maximum": 5 }
+      }
+    },
+    "hours_saved_month": { "type": "number", "minimum": 0 },
+    "assumptions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "summary": { "type": "string", "minLength": 1, "maxLength": 240 },
+    "why_this_route": { "type": "string", "minLength": 1, "maxLength": 240 },
+    "setup_steps": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "items": { "type": "string" }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["risk", "mitigation"],
+        "properties": {
+          "risk": { "type": "string", "maxLength": 120 },
+          "mitigation": { "type": "string", "maxLength": 140 }
+        }
+      }
+    },
+    "human_checkpoints": {
+      "type": "array",
+      "maxItems": 3,
+      "items": { "type": "string" }
+    },
+    "pilot": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "questions_for_vendor": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": { "type": "string" }
+    },
+    "vendor_message_draft": { "type": "string", "minLength": 1, "maxLength": 900 },
+    "model": { "type": "string", "minLength": 1 },
+    "cost_usd": { "type": "number", "minimum": 0 }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "summary": "From the answers given, outbound data, inbound data, and login are unknown, so readiness is mid to low. We did not look up this portal.",
+  "why_this_route": "Software picked the browser path because the answers did not list a documented API or an export. That is a fact from the form, not from the product name.",
+  "setup_steps": [
+    "Ask the vendor which access path they support for this task.",
+    "Leave unknown fields marked unknown until they reply.",
+    "Create a dedicated login only after the vendor confirms it is allowed.",
+    "Run a supervised pilot on last week's list if a sanctioned path exists."
+  ],
+  "risks": [
+    {
+      "risk": "Assuming capabilities from the product name would invent facts.",
+      "mitigation": "Stay with the form answers and put gaps in the vendor questions."
+    }
+  ],
+  "human_checkpoints": ["A person sends the vendor questions before any live run"],
+  "pilot": "Send the vendor questions and keep this week's export manual.",
+  "questions_for_vendor": [
+    "Is a documented API available for exporting last week's new accounts?",
+    "If not, is a scheduled CSV or PDF export available?",
+    "Can we use a dedicated service account for this job?",
+    "What does the current terms text say about automation?"
+  ],
+  "vendor_message_draft": "Hello,\n\nWe use Salesforce Lightning to export last week's new accounts and check missing owners. Could you tell us whether an API, a scheduled export, or a service account is available for that work? We will keep a person in review.\n\nThank you,\n[Your name]"
+}

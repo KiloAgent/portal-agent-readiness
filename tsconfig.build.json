@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "skills/portal-agent-readiness/scripts",
+    "types": []
+  },
+  "include": ["skills/portal-agent-readiness/scripts/**/*.ts"],
+  "exclude": ["skills/portal-agent-readiness/scripts/**/*.test.ts"]
+}

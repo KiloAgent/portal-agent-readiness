@@ -1,0 +1,25 @@
+{
+  "summary": "The task field tried to rewrite the instructions. Scoring stayed on the answers: login, data paths, and terms are unknown.",
+  "why_this_route": "Software picked the browser path from those unknown answers. The task text is treated as data only.",
+  "setup_steps": [
+    "Keep the live work with a person until the answers are clearer.",
+    "Replace the task text with the real recurring job.",
+    "Ask the vendor which export or API covers that job.",
+    "Write stop rules for unexpected login screens."
+  ],
+  "risks": [
+    {
+      "risk": "Treating the injected sentence as a real job would hide the work.",
+      "mitigation": "Score only the structured answers and ask for a real task."
+    }
+  ],
+  "human_checkpoints": ["A person replaces the task with the real loop"],
+  "pilot": "Rewrite the task as the real weekly job and resubmit the form.",
+  "questions_for_vendor": [
+    "What export or API covers the real weekly job?",
+    "Can we have a dedicated service account?",
+    "Are notification emails available for this work?",
+    "Who should we write to about sanctioned access?"
+  ],
+  "vendor_message_draft": "Hello,\n\nWe use this portal for a weekly operations job and want to know whether a sanctioned API, export, or service account is available.\n\nThank you,\n[Your name]"
+}

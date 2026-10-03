@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KiloAgent/portal-agent-readiness/schema/input.json",
+  "title": "PortalCheckInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "email",
+    "portal_name",
+    "task",
+    "frequency",
+    "minutes_per_run",
+    "login",
+    "data_out",
+    "data_in",
+    "terms_automation",
+    "ui_change_frequency",
+    "can_ask_vendor"
+  ],
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "portal_name": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 80
+    },
+    "portal_url": {
+      "type": "string",
+      "pattern": "^https://.+"
+    },
+    "task": {
+      "type": "string",
+      "minLength": 15,
+      "maxLength": 300
+    },
+    "frequency": {
+      "type": "string",
+      "enum": ["daily", "weekly", "monthly", "ad_hoc"]
+    },
+    "minutes_per_run": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 480
+    },
+    "login": {
+      "type": "string",
+      "enum": [
+        "password_only",
+        "sso",
+        "password_plus_sms",
+        "password_plus_authenticator",
+        "magic_link_email",
+        "captcha_on_login",
+        "unknown"
+      ]
+    },
+    "data_out": {
+      "type": "string",
+      "enum": [
+        "api_documented",
+        "csv_or_pdf_export",
+        "email_notifications",
+        "copy_paste_only",
+        "none",
+        "unknown"
+      ]
+    },
+    "data_in": {
+      "type": "string",
+      "enum": [
+        "api_documented",
+        "file_upload",
+        "web_forms_only",
+        "none_needed",
+        "unknown"
+      ]
+    },
+    "terms_automation": {
+      "type": "string",
+      "enum": ["allowed", "unsure", "forbidden"]
+    },
+    "ui_change_frequency": {
+      "type": "string",
+      "enum": ["rarely", "sometimes", "often", "unknown"]
+    },
+    "can_ask_vendor": {
+      "type": "boolean"
+    },
+    "newsletter_optin": {
+      "type": "boolean",
+      "default": false
+    },
+    "honeypot": {
+      "type": "string",
+      "maxLength": 0
+    }
+  }
+}

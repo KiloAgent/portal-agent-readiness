@@ -1,0 +1,28 @@
+Subject: Your portal readiness report: {portal_name} is {tier_label}
+Subject-tier-D: Your portal readiness report: {portal_name}
+Preheader: Best route in, risks, and a message you can send the vendor.
+From: Kilo <bot@kiloagent.com>
+Reply-To: Kilo <bot@kiloagent.com>
+List-Unsubscribe: <{unsubscribe_link}>
+List-Unsubscribe-Post: List-Unsubscribe=One-Click
+
+Hi,
+
+Here's your readiness report for {portal_name}.
+
+Short version: {tier_label}. Best route: {route_plain}.
+
+Open your report: {signed_link}
+
+Inside: the route we'd take and why, setup steps, the main risks, questions to ask the vendor, and a draft message you can send them.
+
+One honest caveat: this is based on your answers, not on testing the portal itself.
+
+If you'd like a second opinion, reply with what you're trying to get done there and a human will read it.
+
+Kilo
+
+--
+ZenStudy Technologies FZCO, Technohub 1, Dubai Silicon Oasis, Dubai, UAE
+You received this one email because you requested a report at kiloagent.com/tools/portal-check using this address. We won't email you again unless you reply or opted in on the form.
+Unsubscribe: {unsubscribe_link}

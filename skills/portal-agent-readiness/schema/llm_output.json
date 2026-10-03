@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KiloAgent/portal-agent-readiness/schema/llm_output.json",
+  "title": "PortalCheckLlmOutput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "summary",
+    "why_this_route",
+    "setup_steps",
+    "risks",
+    "human_checkpoints",
+    "pilot",
+    "questions_for_vendor",
+    "vendor_message_draft"
+  ],
+  "properties": {
+    "summary": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "why_this_route": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "setup_steps": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 6,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "risks": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["risk", "mitigation"],
+        "properties": {
+          "risk": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          },
+          "mitigation": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 140
+          }
+        }
+      }
+    },
+    "human_checkpoints": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 3,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "pilot": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 160
+    },
+    "questions_for_vendor": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "vendor_message_draft": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 900
+    }
+  }
+}
